@@ -7,5 +7,6 @@
 
 # Build
 
-
+- git clone --recurse-submodules https://github.com/untillpro/cdernode
+- git checkout tags/v0.1.0
 
