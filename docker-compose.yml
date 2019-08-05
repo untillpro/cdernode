@@ -1,0 +1,22 @@
+version: '3.3'
+
+services:
+  ui:
+    image: ${DOCKER_LOGIN}/cder:1.1
+    networks:
+      - webgateway
+    command:
+      - cd
+      - --repo=https://github.com/untillpro/untill-air-shell
+      - -w=.air-shell
+      - -t=10
+    deploy:
+      labels:
+        - traefik.enable=true
+        - traefik.frontend.rule=Host:airtest.untill.ru
+        - traefik.port=81
+        - traefik.docker.network=webgateway
+
+networks:
+  webgateway:
+    external: true
