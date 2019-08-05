@@ -2,7 +2,7 @@ version: '3.3'
 
 services:
   ui:
-    image: kindratte/cdernode:1.0
+    image: ${DOCKER_LOGIN}/cdernode:1.0
     networks:
       - webgateway
     command:
