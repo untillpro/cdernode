@@ -2,18 +2,18 @@ version: '3.3'
 
 services:
   ui:
-    image: ${DOCKER_LOGIN}/cder:1.1
+    image: kindratte/cdernode:1.0
     networks:
       - webgateway
     command:
       - cd
       - --repo=https://github.com/untillpro/untill-air-shell
-      - -w=.air-shell
+      - -w=/cder
       - -t=10
     deploy:
       labels:
         - traefik.enable=true
-        - traefik.frontend.rule=Host:airtest.untill.ru
+        - traefik.frontend.rule=Host:air.untill.ru
         - traefik.port=81
         - traefik.docker.network=webgateway
 
