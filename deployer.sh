@@ -9,9 +9,9 @@ case $1 in
    "deploy")
                 echo "deployer.deploy"
                 cd $2
-                if [ -f ./package.json ]; then
+                if [[ -f ./package.json ]]; then
                   needCI=$(git diff --stat master@{1} master package-lock.json || echo "err")
-                  if [ $needCI = "" ]; then
+                  if [[ $needCI = "" ]]; then
                     echo "only build"
                     npm run build
                   else
