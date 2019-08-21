@@ -19,6 +19,7 @@ case $1 in
                   npm run build
                 fi
                 cp -r ./build /usr/share/nginx/html
+                service nginx stop || true
                 service nginx stop
                 service nginx start
                 ;;
@@ -32,6 +33,7 @@ case $1 in
    "stop")
                 echo "deployer.stop"
                 cd $2
+                service nginx stop || true
                 service nginx stop
                 rm ./build
                 ;;
