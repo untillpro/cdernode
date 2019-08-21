@@ -9,8 +9,15 @@ case $1 in
    "deploy")
                 echo "deployer.deploy"
                 cd $2
-                npm ci
-                npm run build
+                needCI=$(git diff --stat master@{1} master package-lock.json)
+                if [[ $needCI = "" ]]
+                  then echo "only build"
+                  npm run build
+                else
+                  echo "ci and build"
+                  npm ci
+                  npm run build
+                fi
                 cp -r ./build /usr/share/nginx/html
                 service nginx stop
                 service nginx start
