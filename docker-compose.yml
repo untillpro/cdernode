@@ -1,7 +1,7 @@
 version: '3.3'
 
 services:
-  ui:
+  shell:
     image: ${DOCKER_LOGIN}/cdernode:v0.0.1
     networks:
       - webgateway
