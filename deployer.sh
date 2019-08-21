@@ -8,7 +8,6 @@ env | grep -i deployer || :
 case $1 in
    "deploy")
                 echo "deployer.deploy"
-                cd $2
                 needCI=$(git diff --stat master@{1} master package-lock.json)
                 if [[ $needCI = "" ]]
                   then echo "only build"
@@ -18,6 +17,7 @@ case $1 in
                   npm ci
                   npm run build
                 fi
+                cd $2
                 cp -r ./build /usr/share/nginx/html
                 service nginx stop
                 service nginx start
