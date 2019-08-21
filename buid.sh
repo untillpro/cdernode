@@ -10,4 +10,4 @@ docker build -t "${DOCKER_LOGIN}"/cdernode:"$version" .
 echo "Push image"
 docker push "${DOCKER_LOGIN}"/cdernode:"$version"
 echo 'Change version in compose file'
-sed -i -e "s/cdernode:1.0/cdernode:$version/g" docker-compose.yml
+sed -i "s/\(cdernode:\)\(.*\)/\1$version/" docker-compose.yml
