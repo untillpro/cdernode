@@ -21,7 +21,7 @@ case $1 in
                   fi
                   cp -r ./build /usr/share/nginx/html
                 else
-                  cp -r ./* /usr/share/nginx/html
+                  cp -r ./* /usr/share/nginx/html/build
                 fi
                 service nginx stop || true
                 service nginx stop
