@@ -21,6 +21,7 @@ case $1 in
                   fi
                   cp -r ./build /usr/share/nginx/html
                 else
+                  mkdir /usr/share/nginx/html/build
                   cp -r ./* /usr/share/nginx/html/build
                 fi
                 service nginx stop || true
@@ -39,7 +40,7 @@ case $1 in
                 cd $2
                 service nginx stop || true
                 service nginx stop
-                rm ./build
+                rm -rf ./build /usr/share/nginx/html/build
                 ;;
    *) echo "Sorry, not sure what you mean"
                 exit 1
