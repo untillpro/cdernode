@@ -21,7 +21,7 @@ case $1 in
                   fi
                   cp -r ./build /usr/share/nginx/html
                 else
-                  mkdir /usr/share/nginx/html/build
+                  mkdir -p /usr/share/nginx/html/build
                   cp -r ./* /usr/share/nginx/html/build
                 fi
                 service nginx stop || true
