@@ -5,6 +5,10 @@
 
 # Usage
 
+- See `docker-compose.yml` as an example
+  - Change repo and traefik rules
+
+
 # Build
 
 ## Prerequisites
