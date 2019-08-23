@@ -7,11 +7,6 @@
 
 # Build
 
-- git clone --recurse-submodules https://github.com/untillpro/cdernode
-- git checkout --recurse-submodules tags/v0.1.0
-
-# Docker
-
 ## Prerequisites
 
 - env `DOCKER_LOGIN`
@@ -19,7 +14,12 @@
 - installed `Golang`
 - installed `qs`
 
-## Usage
+## Tag Version
 
+- git clone --recurse-submodules https://github.com/untillpro/cdernode
 - build new version with `qs r`
+
+## Create Docker Container
+
+- git checkout --recurse-submodules tags/v0.1.0
 - exec `build.sh` to create and upload
