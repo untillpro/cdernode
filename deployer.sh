@@ -11,7 +11,7 @@ case $1 in
                 cd $2
                 if [[ -f ./package.json ]]; then
                   needCI=$(git diff --stat master@{1} master package-lock.json || echo "err")
-                  if [[ $needCI = "" ]]; then
+                  if [[ $needCI == "" ]]; then
                     echo "only build"
                     npm run build
                   else
