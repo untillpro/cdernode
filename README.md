@@ -26,4 +26,8 @@
 ## Create Docker Container
 
 - git checkout --recurse-submodules tags/v0.15.0
-- exec `bash build.sh` to create and upload
+- DOCKER_LOGIN=untillpro sudo -E su
+- PATH=$PATH:/usr/local/go/bin
+- docker login --username $DOCKER_LOGIN
+- service docker restart
+- bash build.sh

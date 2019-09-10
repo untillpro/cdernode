@@ -1,17 +1,19 @@
 #!/bin/bash
 set -e
-echo "Build go..."
-cd ./cder
-go build
-echo "Create docker image"
-cd ..
+
 ver=$(cat version)
 if [[ $ver == *"SNAPSHOT"* ]]; then
   echo "Version can't contain SNAPSHOT: $ver"
   exit 1
 fi
+
+echo "Building cder..."
+cd ./cder
+go build
+echo "Creating docker image..."
+cd ..
 docker build -t "${DOCKER_LOGIN}"/cdernode:"$ver" .
-echo "Push image"
+echo "Pushing image..."
 docker push "${DOCKER_LOGIN}"/cdernode:"$ver"
-echo 'Change ver in compose file'
-sed -i "s/\(cdernode:\)\(.*\)/\1$ver/" docker-compose.yml
+#echo 'Changing ver in compose file'
+#sed -i "s/\(cdernode:\)\(.*\)/\1$ver/" docker-compose.yml
