@@ -25,5 +25,5 @@
 
 ## Create Docker Container
 
-- git checkout --recurse-submodules tags/v0.14.1
+- git checkout --recurse-submodules tags/v0.15.0
 - exec `bash build.sh` to create and upload
