@@ -19,14 +19,17 @@ case $1 in
                     npm ci
                     npm run build
                   fi
+                  # nginx does not alwasys top
+                  service nginx stop || true
+                  service nginx stop               
                   cp -r ./build /usr/share/nginx/html
                 else
                   mkdir -p /usr/share/nginx/html/build
+                  # nginx does not alwasys top
+                  service nginx stop || true
+                  service nginx stop
                   cp -r ./* /usr/share/nginx/html/build
                 fi
-                # nginx does not alwasys top
-                service nginx stop || true
-                service nginx stop
                 service nginx start
                 ;;
    "deploy-all")
