@@ -19,11 +19,11 @@ case $1 in
                     npm ci
                     npm run build
                   fi
-                  kill "$(pidof nginx)" || true
+                  kill $(pidof nginx) || true
                   cp -r ./build /usr/share/nginx/html
                 else
                   mkdir -p /usr/share/nginx/html/build
-                  kill "$(pidof nginx)" || true
+                  kill $(pidof nginx) || true
                   cp -r ./* /usr/share/nginx/html/build
                 fi
                 service nginx start
