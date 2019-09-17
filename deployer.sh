@@ -19,15 +19,11 @@ case $1 in
                     npm ci
                     npm run build
                   fi
-                  # nginx does not alwasys top
-                  service nginx stop || true
-                  service nginx stop               
+                  kill "$(pidof nginx)" || true
                   cp -r ./build /usr/share/nginx/html
                 else
                   mkdir -p /usr/share/nginx/html/build
-                  # nginx does not alwasys top
-                  service nginx stop || true
-                  service nginx stop
+                  kill "$(pidof nginx)" || true
                   cp -r ./* /usr/share/nginx/html/build
                 fi
                 service nginx start
