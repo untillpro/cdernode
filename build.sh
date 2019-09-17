@@ -12,8 +12,8 @@ cd ./cder
 go build
 echo "Creating docker image..."
 cd ..
-docker build -t "${DOCKER_LOGIN}"/cdernode:"$ver" .
+docker build -t "${DOCKER_LOGIN}"/cdernode:v"$ver" .
 echo "Pushing image..."
-docker push "${DOCKER_LOGIN}"/cdernode:"$ver"
+docker push "${DOCKER_LOGIN}"/cdernode:v"$ver"
 #echo 'Changing ver in compose file'
 #sed -i "s/\(cdernode:\)\(.*\)/\1$ver/" docker-compose.yml
